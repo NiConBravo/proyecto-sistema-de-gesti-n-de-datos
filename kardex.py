@@ -10,6 +10,8 @@ def mostrar_kardex(registro, tipo=None):
         print("No hay movimientos registrados.")
         return
 
+    print(f"{'ID Mov':<3} {'TÍTULO':<20} | {'ISBN':<15} | {'TIPO':<8} | {'MOVIMIENTO'}")
+    print("-" * 70)
     for i, m in enumerate(movimientos, start=1):
         print(
             f"{i:02}. {m['titulo']} | ISBN: {m['isbn']} | "

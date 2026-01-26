@@ -1,7 +1,15 @@
-def registrar_movimiento(registro, isbn, titulo, cantidad, tipo):
-    registro.append({
+def registrar_movimiento(
+    registro_movimientos,
+    isbn,
+    titulo,
+    cantidad_inicial,
+    cantidad_final,
+    tipo
+):
+    registro_movimientos.append({
         "isbn": isbn,
         "titulo": titulo,
-        "cantidad": cantidad,
+        "cantidad_inicial": cantidad_inicial,
+        "cantidad_final": cantidad_final,
         "tipo": tipo
     })
