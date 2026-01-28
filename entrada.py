@@ -3,7 +3,7 @@ Módulo de entrada de stock.
 
 Responsabilidad:
 Permitir el ingreso de stock a los libros registrados en el inventario
-y registrar el movimiento correspondiente en el Kardex, incluyendo
+y registrar el movimiento correspondiente en el Kardex (registro de movimientos), incluyendo
 el estado inicial y final del stock.
 
 Este módulo es invocado desde el menú principal (main.py).
@@ -19,11 +19,11 @@ def entrada_stock(inventario_libros, registro_movimientos):
 
     Flujo de la operación:
     1. Permite al usuario seleccionar un libro del inventario.
-    2. Valida que la selección sea válida.
+    2. Valida que se seleccione una opción con número entero.
     3. Solicita una cantidad positiva de stock a ingresar.
     4. Calcula el stock inicial y el stock final.
     5. Actualiza el inventario.
-    6. Registra el movimiento de tipo "Ingreso" en el Kardex.
+    6. Registra el movimiento de tipo "Ingreso" en el Kardex (registro_movimientos).
 
     Parámetros:
     - inventario_libros (dict): Inventario de libros indexado por ISBN.
@@ -35,7 +35,7 @@ def entrada_stock(inventario_libros, registro_movimientos):
     - None. La función modifica el inventario y el registro por referencia.
     """
 
-    # Selección del libro a modificar
+    # Llamado a la función seleccionar_libro en el documento seleccion.py, que retorna el ISBN del libro seleccionado.
     isbn = seleccionar_libro(inventario_libros)
 
     # Si no se selecciona un libro (inventario vacío o cancelación), se aborta la operación
@@ -44,6 +44,7 @@ def entrada_stock(inventario_libros, registro_movimientos):
 
     # Bucle de validación de la cantidad ingresada
     while True:
+        # Input para que el usuario ingrese la cantidad de libros con una función try para controlar que sea un número entero
         try:
             cantidad = int(input(
                 f"Ingrese la cantidad a ingresar para '{inventario_libros[isbn]['titulo']}': "
@@ -54,7 +55,7 @@ def entrada_stock(inventario_libros, registro_movimientos):
                 print("La cantidad debe ser positiva.")
                 continue
 
-            # Stock antes del movimiento
+            # Se asigna el valor del stock antes del movimiento a una variable
             cantidad_inicial = inventario_libros[isbn]["cantidad"]
 
             # Actualización del inventario

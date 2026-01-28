@@ -18,27 +18,27 @@ def añadir_libro(inventario_libros):
               informativos en pantalla.
     """
 
-    # Solicitud y validación del ISBN
+    # Se inicia el bucle para solicitar el ISBN
     while True:
         isbn = input("Ingrese el ISBN (ej. 978-0141036144): ").strip()
 
-        # Validar formato ISBN (###-##########)
+        # Validar formato ISBN (Tres dígitos, un guion, y diez dígitos más)
         if not re.match(r"^\d{3}-\d{10}$", isbn):
             print("Formato de ISBN inválido.")
             continue
 
-        # Verificar si el ISBN ya existe en el inventario
+        # Verificar si el ISBN ya existe en el inventario y si existe da la opción de reemplazarlo
         if isbn in inventario_libros:
             opcion = input("El ISBN existe. ¿Reemplazar? (s/n): ").lower()
             if opcion != "s":
                 continue
         break
 
-    # Solicitud de datos del libro
+    # Se recogen los datos del libro con la función strip para eliminar espacios en blanco en el principio y final
     titulo = input("Ingrese el título: ").strip()
     autor = input("Ingrese el autor: ").strip()
 
-    # Solicitud y validación de la cantidad inicial
+    # Input para que el usuario ingrese la cantidad de libros con una función try para controlar que sea un número entero
     while True:
         try:
             cantidad = int(input("Ingrese la cantidad: "))

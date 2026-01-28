@@ -60,13 +60,13 @@ def salida_stock(inventario_libros, registro_movimientos):
                 print("Stock insuficiente.")
                 continue
 
-            # Stock antes del movimiento
+            # Se asigna el valor del stock antes del movimiento a una variable
             cantidad_inicial = inventario_libros[isbn]["cantidad"]
 
             # Actualización del inventario
             inventario_libros[isbn]["cantidad"] -= cantidad
 
-            # Stock después del movimiento
+            # Se asigna el valor del stock después del movimiento a una variable
             cantidad_final = inventario_libros[isbn]["cantidad"]
 
             # Registro del movimiento en el Kardex

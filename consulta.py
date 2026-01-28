@@ -19,7 +19,7 @@ def gestionar_stock(inventario_libros):
 
     print("\n--- Reporte de Alertas ---")
 
-    # Nivel mínimo de stock permitido
+    # Modifica el valor de esta variable para controlar el stock mínimo bajo el cuál se generará una alerta
     STOCK_MINIMO = 5
 
     # Filtrar libros cuyo stock es menor o igual al mínimo permitido
